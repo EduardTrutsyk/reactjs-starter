@@ -3,10 +3,17 @@
   "globals": {
     "window": true
   },
+  "env": {
+    "es6": true,
+    "mocha": true
+  },
   "rules": {
     "import/imports-first": 0,
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
 
     "react/jsx-space-before-closing": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "react/jsx-sort-props": 2,
+    "react/jsx-no-bind": [0, { allowArrowFunctions: true }],
   }
 }
