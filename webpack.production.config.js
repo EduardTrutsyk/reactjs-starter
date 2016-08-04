@@ -10,12 +10,16 @@ module.exports = {
     filename: '[name].js'
   },
 
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+
   module: {
     loaders: [{
       test: /\.json$/,
       loader: "json"
     }, {
-      test: /\.js$/,
+      test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel'
     }, {

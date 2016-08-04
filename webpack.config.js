@@ -10,7 +10,11 @@ module.exports = {
   entry: __dirname + '/src',
   output: {
     path: __dirname + '/build',
-    filename: 'bundle.js'
+    filename: 'main.js'
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
 
   module: {
@@ -51,7 +55,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.tmpl.html'
     }),
-    new ExtractTextPlugin('styles.css', {
+    new ExtractTextPlugin('main.css', {
       allChunks: true
     })
   ],

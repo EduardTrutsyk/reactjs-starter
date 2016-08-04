@@ -1,9 +1,9 @@
 import config from '../../config.json';
-import React, { Component } from 'react';
+import React from 'react';
 
-import styles from './Greeter.scss';
+import './Greeter.scss';
 
-class Greeter extends Component {
+class Greeter extends React.Component {
   render() {
     return (
       <div className="greeter">

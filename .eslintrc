@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "window": true
+  },
+  "rules": {
+    "import/imports-first": 0,
+
+    "react/jsx-space-before-closing": 0,
+    "react/prefer-stateless-function": 0
+  }
+}

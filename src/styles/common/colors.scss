@@ -1,0 +1,61 @@
+$blue:                  #e9f0f5;
+$grey:                  #ccc;
+$grey-dark:             #89949B;
+$grey-light:            #B8C3C8;
+$red:                   #EA7882;
+
+
+$accent-darker:     #DAAB00 !default;
+$accent:            #F6E41F !default;
+$accent-lighter:    #FAF18F !default;
+$accent-top:        #F6E500 !default;
+$accent-bottom:     #F7DE00 !default;
+$accent-border:     #E6BB00 !default;
+
+$primary-darker:    #003F7F !default;
+$primary-dark:      #004B94 !default;
+$primary:           #0056A9 !default;
+$primary-light:     #005FBB !default;
+$primary-lighter:   #006CD2 !default;
+$primary-overlay:   #4A7BA9 !default;
+
+$secondary-darkest: #7EA6D4 !default;
+$secondary-darker:  #ADC9EA !default;
+$secondary-dark:    #BDD8F1 !default;
+$secondary:         #D5E8F8 !default;
+$secondary-light:   #EBF5FD !default;
+$secondary-lighter: #F7FBFE !default;
+
+$text-darker:       #2B4352 !default;
+$text-dark:         #29425B !default;
+$text:              #597385 !default;
+$text-light:        #78909F !default;
+$text-lighter:      #9DB1C0 !default;
+
+$active:            #00B0FF !default;
+$positive-dark:     #3CB761 !default;
+$positive:          #17D478 !default;
+$positive-light:    #9EDB97 !default;
+$negative:          #D2373F !default;
+$negative-light:    #F4CDCF !default;
+$disabled:          #C5DCF6 !default;
+
+$shadow:            #000000 !default;
+$shadow-alt:        #00196F !default;
+$blank:             #FFFFFF !default;
+
+$facebook:          #45619D !default;
+$facebook-border:   #324A87 !default;
+$twitter:           #08ACEE !default;
+$twitter-border:    #1871C0 !default;
+$google:            #B30303 !default;
+$google-border:     #670E00 !default;
+$instagram-top:     #D9375C !default;
+$instagram-bottom:  #f05c34 !default;
+$instagram-border:  #C32E15 !default;
+$mail:              #006CD2 !default;
+$mail-border:       #0A50A3 !default;
+
+$base-shadowed-color: rgba($shadow, 0.18) !default;
+$base-overlay-color: rgba($primary-dark, .65) !default;
+$base-overlay-color-light: rgba($primary-dark, .35) !default;

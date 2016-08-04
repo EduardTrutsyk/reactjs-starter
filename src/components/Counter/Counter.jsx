@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import styles from './Counter.scss';
+import './Counter.scss';
 
-class Counter extends Component {
+class Counter extends React.Component {
   render() {
     return (
       <div className="counter">
