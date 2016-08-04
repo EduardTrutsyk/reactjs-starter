@@ -1,8 +1,8 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -12,6 +12,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/build/client'),
     filename: 'main.js',
+    publicPath: '/',
   },
 
   resolve: {
@@ -33,17 +34,12 @@ module.exports = {
       test: /\.scss$/,
       include: /src/,
       loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap'),
-      //loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
-      //loaders: ['style-loader', 'css-loader', 'postcss-loader']
-      //loaders: ExtractTextPlugin.extract('css!sass') //['style', 'css', 'sass']
-      //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader?sourceMap')
-      //loader: 'style!css!postcss!sass?sourceMap'
     }],
   },
 
   postcss: [
     autoprefixer({
-      browsers: ['last 3 versions'],
+      browsers: ['last 2 versions'],
     }),
   ],
 
