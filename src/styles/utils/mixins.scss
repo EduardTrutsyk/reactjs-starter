@@ -1,0 +1,5 @@
+@mixin ui-element($radius) {
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: $radius;
+}

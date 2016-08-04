@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -14,39 +15,45 @@ module.exports = {
 
   module: {
     loaders: [{
-      test: /\.json$/,
-      loader: "json"
-    }, {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-    },
-    {
-      test: /\.css$/,
-      //loader: ExtractTextPlugin.extract('style', 'css?modules!postcss')
-      loader: 'style!css?modules!postcss'
-    }]
-    // {
-    //   test: /\.scss$/,
-    //   //loaders: ['style', 'css', 'sass']
-    //   loaders: ExtractTextPlugin.extract('css!sass')
-    // }]
+          test: /\.json$/,
+          loader: "json"
+        }, {
+          test: /\.jsx?$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel'
+        }, {
+          test: /\.woff2?$|\.ttf$|\.eot$|\.svg$|\.png|\.jpe?g|\.gif$/,
+          loader: 'file-loader'
+        },
+        {
+          test: /\.scss$/,
+          include: /src/,
+          loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')
+          //loaders: [ 'style', 'css?sourceMap', 'sass?sourceMap' ]
+          //loaders: ['style-loader', 'css-loader', 'postcss-loader']
+          //loaders: ExtractTextPlugin.extract('css!sass') //['style', 'css', 'sass']
+          //loader: ExtractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader', 'sass-loader'])
+          //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader?sourceMap')
+          //loader: 'style!css!postcss!sass?sourceMap'
+        }
+      ]
   },
 
   postcss: [
-    require('autoprefixer')
+    require('autoprefixer')({
+      browsers: ['last 3 versions']
+    })
   ],
 
   plugins: [
-    new webpack.BannerPlugin('Copyright Eduard Trutsyk React-Starter.'),
+    //new CleanWebpackPlugin(['build'], { verbose: true }),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.tmpl.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
-    // new ExtractTextPlugin('main.css', {
-    //   allChunks: true
-    // })
-    //new ExtractTextPlugin("[name]-[hash].css")
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true
+    })
   ],
 
   devServer: {

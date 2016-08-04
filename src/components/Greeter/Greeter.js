@@ -1,13 +1,13 @@
 import config from '../../config.json';
 import React, { Component } from 'react';
 
-import styles from './Greeter.css';
+import styles from './Greeter.scss';
 
 class Greeter extends Component {
   render() {
     return (
-      <div className={styles.greeter}>
-        {config.greetText}
+      <div className="greeter">
+        <p>{config.greetText}</p>
       </div>
     );
   }

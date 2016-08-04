@@ -1,0 +1,6 @@
+/** Borders **/
+$border-separator--active : 2px dashed $active !default;
+$border-separator--darker: 2px dashed $secondary-darker !default;
+$border-separator--solid: 2px solid $secondary !default;
+$border-separator: 2px dashed $secondary !default;
+$border-separator--srp-header: 2px dashed $primary-dark !default;

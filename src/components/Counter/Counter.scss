@@ -1,0 +1,11 @@
+@import '../../styles/common/variables.scss';
+.counter {
+  background-color: $grey-light;
+  padding: 20px;
+  border: 3px solid blue;
+  display: flex;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
