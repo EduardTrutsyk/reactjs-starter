@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import Todo from '../../components/Todo';
 
 class Home extends Component {
   render() {
     return (
       <div className="home-page">
-        <p>Page <code>/</code></p>
+        <Todo />
       </div>
     );
   }
 }
+
 
 export default Home;

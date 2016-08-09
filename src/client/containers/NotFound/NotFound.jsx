@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from '../NavLink/NavLink';
+import { NavLink } from '../../components/NavLink/NavLink';
 
 class NotFound extends Component {
   render() {

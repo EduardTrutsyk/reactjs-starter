@@ -22,7 +22,7 @@ class Login extends Component {
 
         <form onSubmit={this.onSubmit}>
           <input placeholder="login" type="text"/>
-          <button type="submit">Войти</button>
+          <button type="submit">Login</button>
         </form>
       </div>
     );

@@ -13,7 +13,6 @@ html {
 body {
   margin: 0;
   font-family: $font-family-base; //'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: red;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul {
@@ -21,7 +20,22 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding: 0;
 }
 
-p {
-  color: $red;
-  display: block;
+:focus {
+  outline: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

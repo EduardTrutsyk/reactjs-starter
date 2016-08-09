@@ -1,6 +1,10 @@
 import React from 'react';
 import NavLink from '../components/NavLink/NavLink';
 
+//import Perf from 'react-addons-perf';
+
+//window.Perf = Perf;
+
 const App = (props) => (
   <div className="page-container">
     <header>

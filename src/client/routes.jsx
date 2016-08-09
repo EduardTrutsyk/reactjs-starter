@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import ProfilePage from './components/Profile/Profile';
-import ProfileSettingsPage from './components/Profile/ProfileSettings';
-import AdminPage from './components/Admin/Admin';
-import App from './components/App';
-import HomePage from './components/Home/Home';
-import LoginPage from './components/Login/Login';
-import NotFoundPage from './components/NotFound/NotFound';
+import ProfilePage from './containers/Profile/Profile';
+import ProfileSettingsPage from './containers/Profile/ProfileSettings';
+import AdminPage from './containers/Admin/Admin';
+import App from './containers/App';
+import HomePage from './containers/Home/Home';
+import LoginPage from './containers/Login/Login';
+import NotFoundPage from './containers/NotFound/NotFound';
 import requireAuthentication from './components/AuthenticatedComponent/AuthenticatedComponent';
 
 export default (
