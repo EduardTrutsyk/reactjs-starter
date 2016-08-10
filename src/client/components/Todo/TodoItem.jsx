@@ -18,11 +18,11 @@ class TodoItem extends PureComponent {
   }
 
   handleCompleteTodo() {
-    this.props.completeTodo(this.props.todo.id);
+    this.props.completeTodo(this.props.todo.get('id'));
   }
 
   handleDeleteTodo() {
-    this.props.deleteTodo(this.props.todo.id);
+    this.props.deleteTodo(this.props.todo.get('id'));
   }
 
   handleDoubleClick() {
@@ -30,7 +30,7 @@ class TodoItem extends PureComponent {
   }
 
   handleSave(text) {
-    const { id } = this.props.todo;
+    const id = this.props.todo.get('id');
 
     if (text.length === 0) {
       this.props.deleteTodo(id);
@@ -42,31 +42,31 @@ class TodoItem extends PureComponent {
 
   render() {
     const { todo } = this.props;
-
+    const id = todo.get('id');
     let element;
     if (this.state.editing) {
       element = (
         <TodoTextInput
           editing={this.state.editing}
           onSave={this.handleSave}
-          text={todo.text}
+          text={todo.get('text')}
         />
       );
     } else {
       element = (
         <div className="view">
           <input
-            checked={todo.completed}
+            checked={todo.get('completed')}
             className="toggle"
-            id={`todo-item__checkbox-${todo.id}`}
+            id={`todo-item__checkbox-${id}`}
             onChange={this.handleCompleteTodo}
             type="checkbox"
           />
           <label
-            htmlFor={`todo-item__checkbox-${todo.id}`}
+            htmlFor={`todo-item__checkbox-${id}`}
             onDoubleClick={this.handleDoubleClick}
           >
-            {todo.text}
+            {todo.get('text')}
           </label>
           <button
             className="destroy"
@@ -77,7 +77,7 @@ class TodoItem extends PureComponent {
     }
 
     const itemClassName = {
-      completed: todo.completed,
+      completed: todo.get('completed'),
       editing: this.state.editing,
     };
     return (
@@ -90,7 +90,7 @@ class TodoItem extends PureComponent {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  // editTodo: PropTypes.func.isRequired,
+  editTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   completeTodo: PropTypes.func.isRequired,
 };

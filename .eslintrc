@@ -16,6 +16,7 @@
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "new-cap": [2, { "capIsNewExceptions": ["List", "Map"] }],
 
     "react/jsx-space-before-closing": 0,
     "react/prefer-stateless-function": 0,

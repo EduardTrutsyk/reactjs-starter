@@ -63,7 +63,8 @@ class TodoSection extends PureComponent {
             <TodoItem
               completeTodo={actions.completeTodo}
               deleteTodo={actions.deleteTodo}
-              key={todo.id}
+              editTodo={actions.editTodo}
+              key={todo.get('id')}
               todo={todo}
             />
           )}
@@ -74,7 +75,7 @@ class TodoSection extends PureComponent {
 }
 
 TodoSection.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todos: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 };
 

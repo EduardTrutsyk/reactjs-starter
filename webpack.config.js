@@ -33,7 +33,8 @@ module.exports = {
     }, {
       test: /\.scss$/,
       include: /src/,
-      loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap'),
+      loader: 'style!css?sourceMap!postcss!sass?sourceMap',
+      //loader: 'css?sourceMap!postcss!sass?sourceMap', //ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap'),
     }],
   },
 
@@ -48,9 +49,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/src/client/index.tmpl.html'),
     }),
-    new ExtractTextPlugin('main.css', {
-      allChunks: true,
-    }),
+    // new ExtractTextPlugin('main.css', {
+    //   allChunks: true,
+    // }),
   ],
 
   devServer: {

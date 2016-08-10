@@ -19,14 +19,11 @@ ReactDom.render(
 );
 
 
-window.runTest = function () {
-  const N_OF_RUNS = 100;
+window.runTest = () => {
+  const N_OF_RUNS = 101;
   const start = performance.now();
-  Array(N_OF_RUNS).fill(0).forEach(() => {
-    const id = 1;
-    //const oldText = store.getState().todos[id].text;
-    // update redux store
-    store.dispatch({ type: 'COMPLETE_TODO', id });
+  new Array(N_OF_RUNS).fill(0).forEach(() => {
+    store.dispatch({ type: 'COMPLETE_TODO', id: 1 });
   });
   const end = performance.now();
 

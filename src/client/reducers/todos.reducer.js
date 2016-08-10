@@ -1,3 +1,6 @@
+import { List, Map } from 'immutable';
+import { uid } from '../utils';
+
 import {
   ADD_TODO,
   DELETE_TODO,
@@ -7,53 +10,40 @@ import {
   CLEAR_COMPLETED,
 } from '../constants/actions.types';
 
-const initialState = Array(1000).fill(0).map((item, i) => ({
+const initialState = new Array(10).fill(0).map((item, i) => (Map({
   text: `Todo Item ${i + 1}`,
   completed: i % 3 === 0,
-  id: i,
-}));
+  id: uid(),
+})));
 
-export default function todos(state = initialState, action) {
+export default function TodosReducer(todos = List(initialState), action) {
+  let index;
   switch (action.type) {
     case ADD_TODO:
-      return [
-        {
-          id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-          completed: false,
-          text: action.text,
-        },
-        ...state,
-      ];
+      return todos.unshift(Map({
+        id: uid(),
+        completed: false,
+        text: action.text,
+      }));
 
     case DELETE_TODO:
-      return state.filter(todo =>
-        todo.id !== action.id
-      );
+      return todos.remove(todos.findIndex((t) => t.get('id') === action.id));
 
-    // case EDIT_TODO:
-    //   return state.map(todo => (
-    //     todo.id === action.id ?
-    //       Object.assign({}, todo, { text: action.text }) :
-    //       todo
-    //   ));
-    //
+    case EDIT_TODO:
+      index = todos.findIndex((t) => t.get('id') === action.id);
+      return todos.update(index, (t) => t.set('text', action.text));
+
     case COMPLETE_TODO:
-      return state.map((todo) => (
-        todo.id === action.id ?
-          Object.assign({}, todo, { completed: !todo.completed }) :
-          todo
-      ));
-    //
-    // case COMPLETE_ALL:
-    //   const areAllMarked = state.every(todo => todo.completed);
-    //   return state.map(todo => Object.assign({}, todo, {
-    //     completed: !areAllMarked,
-    //   }));
-    //
-    // case CLEAR_COMPLETED:
-    //   return state.filter(todo => todo.completed === false);
+      index = todos.findIndex((t) => t.get('id') === action.id);
+      return todos.update(index, (t) => t.set('completed', !t.get('completed')));
+
+    case COMPLETE_ALL:
+      return todos.map(t => t.set('completed', true));
+
+    case CLEAR_COMPLETED:
+      return todos.map(t => t.set('completed', false));
 
     default:
-      return state;
+      return todos;
   }
 }
