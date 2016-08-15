@@ -43,15 +43,15 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new CleanWebpackPlugin(['build'], { verbose: true }),
-    new webpack.BannerPlugin('Copyright Eduard Trutsyk React-Starter.'),
+    //new CleanWebpackPlugin(['build'], { verbose: true }),
+    //new webpack.BannerPlugin('Copyright Eduard Trutsyk React-Starter.'),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/src/client/index.tmpl.html'),
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: true,
+        warnings: false,
       },
     }),
     new ExtractTextPlugin('main.css'),
