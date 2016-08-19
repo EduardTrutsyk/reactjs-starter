@@ -48,6 +48,7 @@ class TodoFooter extends PureComponent {
   }
 
   render() {
+    console.info('TodoFooter:render');
     return (
       <footer className="footer">
         {this.renderTodoCount()}

@@ -17,6 +17,7 @@ class TodoHeader extends PureComponent {
   }
 
   render() {
+    console.info('TodoHeader:render');
     return (
       <header className="header">
         <h1>todos</h1>

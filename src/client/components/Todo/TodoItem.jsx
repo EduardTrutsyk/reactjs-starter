@@ -5,8 +5,16 @@ import TodoTextInput from './TodoTextInput';
 import './todoItem.scss';
 
 class TodoItem extends PureComponent {
-  constructor(props, context) {
-    super(props, context);
+  static propTypes = {
+    todo: PropTypes.object.isRequired,
+    editTodo: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired,
+    completeTodo: PropTypes.func.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
     this.state = {
       editing: false,
     };
@@ -41,6 +49,7 @@ class TodoItem extends PureComponent {
   }
 
   render() {
+    console.info('TodoItem:render');
     const { todo } = this.props;
     const id = todo.get('id');
     let element;
@@ -87,12 +96,5 @@ class TodoItem extends PureComponent {
     );
   }
 }
-
-TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired,
-  editTodo: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
-  completeTodo: PropTypes.func.isRequired,
-};
 
 export default TodoItem;

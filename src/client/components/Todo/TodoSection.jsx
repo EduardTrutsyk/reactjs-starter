@@ -5,56 +5,14 @@ import './todoSection.scss';
 import './todoList.scss';
 
 class TodoSection extends PureComponent {
-  // constructor(props, context) {
-  //   super(props, context);
-  //   // this.state = { filter: SHOW_ALL };
-  // }
-
-  // handleClearCompleted() {
-  //   this.props.actions.clearCompleted();
-  // }
-  //
-  // handleShow(filter) {
-  //   this.setState({ filter });
-  // }
-
-  // renderToggleAll(completedCount) {
-  //   const { todos, actions } = this.props;
-  //   if (todos.length > 0) {
-  //     return (
-  //       <input className="toggle-all"
-  //              type="checkbox"
-  //              checked={completedCount === todos.length}
-  //              onChange={actions.completeAll} />
-  //     )
-  //   }
-  // }
-
-  // renderFooter(completedCount) {
-  //   const { todos } = this.props;
-  //   const { filter } = this.state;
-  //   const activeCount = todos.length - completedCount;
-  //
-  //   if (todos.length) {
-  //     return (
-  //       <Footer completedCount={completedCount}
-  //               activeCount={activeCount}
-  //               filter={filter}
-  //               onClearCompleted={this.handleClearCompleted.bind(this)}
-  //               onShow={this.handleShow.bind(this)} />
-  //     );
-  //   }
-  // }
+  static propTypes = {
+    todos: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+  };
 
   render() {
+    console.info('TodoSection:render');
     const { todos, actions } = this.props;
-    // const { filter } = this.state;
-
-    // const filteredTodos = todos; // todos.filter(TODO_FILTERS[filter]);
-    // const completedCount = todos.reduce((count, todo) =>
-    //     todo.completed ? count + 1 : count,
-    //   0
-    // );
 
     return (
       <section className="main">
@@ -73,10 +31,5 @@ class TodoSection extends PureComponent {
     );
   }
 }
-
-TodoSection.propTypes = {
-  todos: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-};
 
 export default TodoSection;

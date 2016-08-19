@@ -16,7 +16,7 @@ const initialState = new Array(10).fill(0).map((item, i) => (Map({
   id: uid(),
 })));
 
-export default function TodosReducer(todos = List(initialState), action) {
+export default function reducer(todos = List([]), action) {
   let index;
   switch (action.type) {
     case ADD_TODO:

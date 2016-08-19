@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
+//import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'multireducer';
 import { connect } from 'react-redux';
 import * as TodoActions from '../../actions/todo.actions';
 import TodoHeader from './TodoHeader';
@@ -11,12 +12,18 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/todoFilte
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
   [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [SHOW_COMPLETED]: todo => todo.completed,
 };
 
 import './index.scss';
 
+@connect(mapStateToProps, mapDispatchToProps)
 class Todo extends PureComponent {
+
+  static propTypes = {
+    todos: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+  };
 
   handleClearCompleted() {
     this.props.actions.clearCompleted();
@@ -27,6 +34,7 @@ class Todo extends PureComponent {
   }
 
   render() {
+    console.info('Todo:render');
     const { todos, actions, filter } = this.props;
     const completedCount = todos.reduce((count, todo) => (
         todo.get('completed') ? count + 1 : count),
@@ -51,22 +59,17 @@ class Todo extends PureComponent {
   }
 }
 
-Todo.propTypes = {
-  todos: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-};
-
-function mapStateToProps(state) {
+function mapStateToProps(state, { as }) {
   return {
-    todos: state.todos,
+    todos: state.todos[as],
     filter: SHOW_ALL,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, { as }) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch),
+    actions: bindActionCreators(TodoActions, dispatch, as),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default Todo;
