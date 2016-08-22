@@ -6,7 +6,9 @@
   ],
 
   "plugins": [
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements"
   ],
 
   "env": {
@@ -20,12 +22,6 @@
           }]
         }]
       ]
-    },
-    "production": {
-        "plugins": [
-          "transform-react-constant-elements",
-          "transform-react-inline-elements"
-        ]
-      }
+    }
   }
 }
