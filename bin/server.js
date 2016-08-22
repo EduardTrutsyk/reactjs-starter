@@ -11,4 +11,4 @@ try {
 }
 
 require('babel-core/register')(config);
-require('../src/server');
+require('../index');
