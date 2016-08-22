@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
 
-const NavLink = (props) => (
-  <Link {...props} activeClassName="active"/>
-);
+class NavLink extends PureComponent {
+  render() {
+    return (
+      <Link {...this.props} activeClassName="active"/>
+    );
+  }
+}
 
 export default NavLink;

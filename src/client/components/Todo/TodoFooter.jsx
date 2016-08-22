@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import classnames from 'classnames';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/todoFilters';
 
+
 import './todoFooter.scss';
 
 const FILTER_TITLES = {

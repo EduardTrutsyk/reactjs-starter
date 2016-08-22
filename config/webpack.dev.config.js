@@ -4,8 +4,8 @@ const config = require('./index');
 const webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'eval-source-map',
-  // devtool: 'cheap-module-eval-source-map',
+  // devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   module: {
     loaders: [

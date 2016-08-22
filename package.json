@@ -9,7 +9,7 @@
 
     "build": "npm run build:prod",
     "build:dev": "webpack",
-    "build:prod": "NODE_ENV=production webpack --config ./config/webpack.prod.config.js --progress",
+    "build:prod": "webpack --config ./config/webpack.prod.config.js --progress",
 
     "test": "echo \"Error: no test specified\" && exit 1"
   },

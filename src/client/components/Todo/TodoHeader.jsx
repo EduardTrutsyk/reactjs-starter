@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import TodoTextInput from './TodoTextInput';
 
 import './todoHeader.scss';
