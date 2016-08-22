@@ -9,7 +9,7 @@ app.set('port', port);
 app.use(express.static(path.join(__dirname, './dist/client/')));
 
 app.get('*', (request, response) => {
-  response.sendfile('./dist/client/index.html');
+  response.sendfile(path.join(__dirname, './dist/client/index.html'));
 });
 
 app.listen(app.get('port'), () => {
