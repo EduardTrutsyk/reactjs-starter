@@ -18,7 +18,7 @@ export function editTodo(id, text) {
   return (dispatch) => {
     fetch('/')
       .then((res) => {
-        console.log(res);
+        alert('fetch');
         dispatch({
           type: types.EDIT_TODO,
           id,
