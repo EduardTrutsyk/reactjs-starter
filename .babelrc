@@ -7,8 +7,6 @@
 
   "plugins": [
     "transform-decorators-legacy",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements"
   ],
 
   "env": {
@@ -21,6 +19,13 @@
             "locals": ["module"]
           }]
         }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-remove-prop-types",
+        "transform-react-inline-elements"
       ]
     }
   }

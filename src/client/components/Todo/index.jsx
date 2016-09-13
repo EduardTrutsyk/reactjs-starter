@@ -1,7 +1,10 @@
+import './index.scss';
+
 import React, { PureComponent, PropTypes } from 'react';
 //import { bindActionCreators } from 'redux';
 import { bindActionCreators } from 'multireducer';
 import { connect } from 'react-redux';
+
 import * as TodoActions from '../../actions/todo.actions';
 import TodoHeader from './TodoHeader';
 import TodoSection from './TodoSection';
@@ -14,8 +17,6 @@ const TODO_FILTERS = {
   [SHOW_ACTIVE]: todo => !todo.completed,
   [SHOW_COMPLETED]: todo => todo.completed,
 };
-
-import './index.scss';
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Todo extends PureComponent {

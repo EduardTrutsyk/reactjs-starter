@@ -13,7 +13,7 @@ import requireAuthentication from './components/AuthenticatedComponent/Authentic
 export default (
   <Route component={App} path="/">
     <IndexRoute component={HomePage}/>
-    <Route component={requireAuthentication(AdminPage)} onEnter={AdminPage.onEnter} path="admin"/>
+    <Route component={requireAuthentication(AdminPage)} path="admin"/>
     <Route component={LoginPage} path="login"/>
     <Route component={ProfilePage} path="profile/:userName">
       <Route component={ProfileSettingsPage} path="settings"/>

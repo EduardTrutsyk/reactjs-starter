@@ -15,11 +15,25 @@ export function deleteTodo(id) {
 }
 
 export function editTodo(id, text) {
-  return {
-    type: types.EDIT_TODO,
-    id,
-    text,
-  };
+  return (dispatch) => {
+    fetch('/')
+      .then((res) => {
+        console.log(res);
+        dispatch({
+          type: types.EDIT_TODO,
+          id,
+          text,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    // return {
+    //   type: types.EDIT_TODO,
+    //   id,
+    //   text,
+    // };
+  }
 }
 
 export function completeTodo(id) {

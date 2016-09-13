@@ -1,8 +1,8 @@
 const autoprefixer = require('autoprefixer');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  noInfo: true,
   entry: './src/client',
 
   output: {
@@ -39,7 +39,7 @@ module.exports = {
 
   postcss: [
     autoprefixer({
-      browsers: ['last 2 versions'],
+      browsers: ['last 3 versions'],
     }),
   ],
 
@@ -48,8 +48,5 @@ module.exports = {
       from: 'src/client/assets',
       to: 'assets',
     }]),
-    new HtmlWebpackPlugin({
-      template: 'src/client/index.html',
-    }),
   ],
 };

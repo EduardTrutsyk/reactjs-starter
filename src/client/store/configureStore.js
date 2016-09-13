@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+
 import rootReducer from '../reducers';
 import { redirect } from '../middlewares/redirect';
 
@@ -12,7 +13,7 @@ export default function configureStore() {
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers');
+      const nextRootReducer = require('../reducers').default;
 
       store.replaceReducer(nextRootReducer);
     });
